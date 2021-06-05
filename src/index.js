@@ -6,6 +6,7 @@ const App = () => {
   const [good, setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
+  const allVotes = good + neutral + bad
 
   return (
     <div class="ispentwaytoomuchtimefiguringoutwhythisisnotworkinganditturnsoutijustneedaparentelement">
@@ -16,7 +17,10 @@ const App = () => {
       <h1>statisitics</h1>
       <p>Good = {good}</p>
       <p>Neutral = {neutral}</p>
-      <p>Bad =  {bad}</p></div>
+      <p>Bad =  {bad}</p>
+      <p>Amount of votes  =  {allVotes}</p>
+      <p>Positive votes = {(100 / allVotes) * good + " %"}</p>
+      </div>
   );
 };
 
