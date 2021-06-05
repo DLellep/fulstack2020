@@ -8,18 +8,28 @@ const App = () => {
   const [bad, setBad] = useState(0)
   const allVotes = good + neutral + bad
 
+  const Statistics = (props) => {
+    return (
+      <div>
+      <h1>statisitics</h1>
+      <p>Good = {props.good}</p>
+      <p>Neutral = {props.neutral}</p>
+      <p>Bad =  {props.bad}</p>
+      <p>Amount of votes  =  {props.allVotes}</p>
+      <p>Positive votes = {(100 / props.allVotes) * props.good + " %"}</p>
+      </div>
+    )
+  }
+
+
+
   return (
     <div class="ispentwaytoomuchtimefiguringoutwhythisisnotworkinganditturnsoutijustneedaparentelement">
       <h1>feedbck</h1>
       <button onClick={()=>setGood(good+1)}>good</button>
       <button onClick={()=>setNeutral(neutral+1)}>neutral</button>
       <button onClick={()=>setBad(bad+1)}>bad</button>
-      <h1>statisitics</h1>
-      <p>Good = {good}</p>
-      <p>Neutral = {neutral}</p>
-      <p>Bad =  {bad}</p>
-      <p>Amount of votes  =  {allVotes}</p>
-      <p>Positive votes = {(100 / allVotes) * good + " %"}</p>
+      <Statistics good={good} neutral={neutral} bad={bad} allVotes={good+neutral+bad}/>
       </div>
   );
 };
